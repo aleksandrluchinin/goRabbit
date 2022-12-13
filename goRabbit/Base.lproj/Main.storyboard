@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="goRabbit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uWS-dT-jz9" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnz-hA-b7p">
+                                <rect key="frame" x="15" y="733" width="164.66666666666666" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Удалить маршрут" cornerStyle="dynamic">
+                                    <color key="baseBackgroundColor" systemColor="linkColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AXh-Jj-gsA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IV6-Re-rNT">
+                                <rect key="frame" x="285.66666666666669" y="134" width="82.333333333333314" height="29.666666666666657"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" subtitle="Маршрут" cornerStyle="dynamic">
+                                    <backgroundConfiguration key="background"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="toggleMarker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hBN-Cn-0ZD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8U7-2w-sXf">
+                                <rect key="frame" x="290" y="74" width="78" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Yyh-Vt-dY6"/>
+                                    <constraint firstAttribute="width" constant="78" id="ixm-CO-Iti"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="homekit" catalog="system" cornerStyle="dynamic"/>
+                                <connections>
+                                    <action selector="homeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hid-SF-aQu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uWS-dT-jz9" secondAttribute="trailing" id="3XO-nW-fCG"/>
+                            <constraint firstItem="IV6-Re-rNT" firstAttribute="top" secondItem="8U7-2w-sXf" secondAttribute="bottom" constant="25" id="9zN-dO-8a1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IV6-Re-rNT" secondAttribute="trailing" constant="25" id="AM0-O9-Vwx"/>
+                            <constraint firstItem="uWS-dT-jz9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Em8-CL-Na7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dnz-hA-b7p" secondAttribute="bottom" constant="50" id="FGz-Qd-uCC"/>
+                            <constraint firstItem="dnz-hA-b7p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="GOq-1r-RgF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8U7-2w-sXf" secondAttribute="trailing" constant="25" id="IG6-91-3H6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8U7-2w-sXf" secondAttribute="bottom" constant="709" id="JH3-0O-uer"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8U7-2w-sXf" secondAttribute="trailing" constant="25" id="Kxi-RX-3ul"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8U7-2w-sXf" secondAttribute="trailing" constant="25" id="PUg-aE-E8P"/>
+                            <constraint firstItem="uWS-dT-jz9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PpC-Mo-xwx"/>
+                            <constraint firstItem="8U7-2w-sXf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="ZL3-Hp-l1x"/>
+                            <constraint firstItem="IV6-Re-rNT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="aRz-wp-er2"/>
+                            <constraint firstItem="8U7-2w-sXf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="290" id="dV4-Hm-b1J"/>
+                            <constraint firstItem="8U7-2w-sXf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="ffs-2w-NCY"/>
+                            <constraint firstItem="8U7-2w-sXf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="h1Y-5j-s8d"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uWS-dT-jz9" secondAttribute="bottom" id="hFW-bT-KoL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8U7-2w-sXf" secondAttribute="trailing" constant="25" id="hJe-DH-Exa"/>
+                            <constraint firstItem="8U7-2w-sXf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="koR-Xc-pCB"/>
+                            <constraint firstItem="dnz-hA-b7p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="le5-yI-rxB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="uWS-dT-jz9" id="N2w-Cm-ul9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="homekit" catalog="system" width="128" height="104"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
