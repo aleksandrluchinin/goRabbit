@@ -30,7 +30,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         //  setConstraints()
-        configureLocationManager()
+        
         configure()
         
     }
@@ -73,6 +73,12 @@ class MapViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func myPozitionButton(_ sender: Any) {
+        configureLocationManager()
+        
+    }
+    
     @IBAction func resetButton(_ sender: Any) {
         
     }
@@ -96,6 +102,10 @@ class MapViewController: UIViewController {
     }
     private func configureLocationManager() {
         locationManager = CLLocationManager()
+        locationManager?.requestWhenInUseAuthorization()
+       // locationManager?.requestLocation()
+        locationManager?.startUpdatingLocation()
+        locationManager?.delegate = self
     }
 }
 
@@ -127,3 +137,16 @@ extension MapViewController: GMSMapViewDelegate {
 //        ])
 //    }
 //}
+
+extension MapViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations)
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error:
+    Error) {
+    print(error)
+        
+    }
+    
+}
