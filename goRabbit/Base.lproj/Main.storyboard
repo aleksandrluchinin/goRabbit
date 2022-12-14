@@ -20,6 +20,13 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Адрес" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2W-li-7Dn">
+                                <rect key="frame" x="0.0" y="712.66666666666663" width="393" height="20.333333333333371"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v03-fm-vdP">
                                 <rect key="frame" x="343" y="733" width="35" height="35"/>
                                 <state key="normal" title="Button"/>
@@ -68,19 +75,25 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="v03-fm-vdP" secondAttribute="bottom" constant="50" id="1cL-Zd-SnG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uWS-dT-jz9" secondAttribute="trailing" id="3XO-nW-fCG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X2W-li-7Dn" secondAttribute="trailing" id="4bl-Iv-3SM"/>
                             <constraint firstItem="IV6-Re-rNT" firstAttribute="top" secondItem="8U7-2w-sXf" secondAttribute="bottom" constant="25" id="9zN-dO-8a1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IV6-Re-rNT" secondAttribute="trailing" constant="25" id="AM0-O9-Vwx"/>
                             <constraint firstItem="uWS-dT-jz9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Em8-CL-Na7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dnz-hA-b7p" secondAttribute="bottom" constant="50" id="FGz-Qd-uCC"/>
                             <constraint firstItem="dnz-hA-b7p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="GOq-1r-RgF"/>
+                            <constraint firstItem="X2W-li-7Dn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hab-l6-sUu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8U7-2w-sXf" secondAttribute="trailing" constant="25" id="IG6-91-3H6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8U7-2w-sXf" secondAttribute="bottom" constant="709" id="JH3-0O-uer"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8U7-2w-sXf" secondAttribute="trailing" constant="25" id="Kxi-RX-3ul"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8U7-2w-sXf" secondAttribute="trailing" constant="25" id="PUg-aE-E8P"/>
                             <constraint firstItem="uWS-dT-jz9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PpC-Mo-xwx"/>
+                            <constraint firstItem="v03-fm-vdP" firstAttribute="top" secondItem="X2W-li-7Dn" secondAttribute="bottom" id="VxJ-KJ-YFK"/>
+                            <constraint firstItem="X2W-li-7Dn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WPQ-Qg-R0x"/>
                             <constraint firstItem="8U7-2w-sXf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="ZL3-Hp-l1x"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v03-fm-vdP" secondAttribute="trailing" constant="15" id="ZLv-bV-I0n"/>
+                            <constraint firstItem="X2W-li-7Dn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zvq-Ab-QVl"/>
                             <constraint firstItem="IV6-Re-rNT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="aRz-wp-er2"/>
+                            <constraint firstItem="X2W-li-7Dn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bWH-lF-7IF"/>
                             <constraint firstItem="8U7-2w-sXf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="290" id="dV4-Hm-b1J"/>
                             <constraint firstItem="8U7-2w-sXf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="ffs-2w-NCY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v03-fm-vdP" secondAttribute="trailing" constant="15" id="g1b-Bo-hqO"/>
@@ -88,12 +101,16 @@
                             <constraint firstItem="8U7-2w-sXf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="h1Y-5j-s8d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uWS-dT-jz9" secondAttribute="bottom" id="hFW-bT-KoL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8U7-2w-sXf" secondAttribute="trailing" constant="25" id="hJe-DH-Exa"/>
+                            <constraint firstItem="X2W-li-7Dn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hT1-yX-sat"/>
                             <constraint firstItem="8U7-2w-sXf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="koR-Xc-pCB"/>
                             <constraint firstItem="dnz-hA-b7p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="le5-yI-rxB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v03-fm-vdP" secondAttribute="trailing" constant="15" id="t2E-Wo-6Jk"/>
+                            <constraint firstItem="v03-fm-vdP" firstAttribute="top" secondItem="X2W-li-7Dn" secondAttribute="bottom" id="x5d-Xn-bze"/>
+                            <constraint firstItem="dnz-hA-b7p" firstAttribute="top" secondItem="X2W-li-7Dn" secondAttribute="bottom" id="zQW-ya-bXe"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addressLabel" destination="X2W-li-7Dn" id="v6n-Qh-seN"/>
                         <outlet property="mapView" destination="uWS-dT-jz9" id="N2w-Cm-ul9"/>
                     </connections>
                 </viewController>
@@ -112,6 +129,9 @@
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

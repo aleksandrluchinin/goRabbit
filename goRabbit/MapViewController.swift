@@ -32,7 +32,7 @@ class MapViewController: UIViewController {
         //  setConstraints()
         
         configure()
-        
+
     }
     
     @IBAction func homeButton(_ sender: Any) {
@@ -41,12 +41,9 @@ class MapViewController: UIViewController {
         
         if marker == nil {
             addMarker()
-        } else {
-            removeMarker()
-        }
-        //        let coordinate = CLLocationCoordinate2D(latitude: 55.753215, longitude: 37.622504)
-        //        let camera = GMSCameraPosition(target: coordinate, zoom: 17)
-        //        mapView.camera = camera
+//        } else {
+//            removeMarker()
+       }
     }
     
     @IBAction func toggleMarker(_ sender: Any) {
@@ -55,24 +52,22 @@ class MapViewController: UIViewController {
         }
     }
     
-    private func setupPlacemark() {
+    @IBOutlet weak var addressLabel: UILabel!
+    
+    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
         
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString("") { [self] (placemark, error) in
-            
-            if let error = error {
-                print(error)
-                alertError(title: "Ошибка", message: "Сервер недоступен")
-                return
+        let geocoder = GMSGeocoder()
+        geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
+            if let address = response?.firstResult() {
+                let lines = address.lines!
+                self.addressLabel.text = lines.joined(separator: "String")
+                let labelHeight = self.addressLabel.intrinsicContentSize.height
+                UIView.animate(withDuration: 0.25) {
+                    self.view.layoutIfNeeded()
+                }
             }
-//            guard let placemark = placemark else { return }
-//            let placemark = placemark.first
-            
-           
-            
         }
     }
-    
     
     @IBAction func myPozitionButton(_ sender: Any) {
         configureLocationManager()
@@ -92,22 +87,25 @@ class MapViewController: UIViewController {
     }
     
     private func configure() {
-        let camera = GMSCameraPosition(target: coordinate, zoom: 17)
+        let camera = GMSCameraPosition(target: coordinate, zoom: 15)
         mapView.camera = camera
         mapView.delegate = self
     }
-    private func removeMarker() {
-        marker?.map = nil
-        marker = nil
-    }
+//    private func removeMarker() {
+//        marker?.map = nil
+//        marker = nil
+//    }
+    
     private func configureLocationManager() {
         locationManager = CLLocationManager()
         locationManager?.requestWhenInUseAuthorization()
-       // locationManager?.requestLocation()
+        // locationManager?.requestLocation()
         locationManager?.startUpdatingLocation()
         locationManager?.delegate = self
     }
 }
+
+//MARK: - GMSMapViewDelegate
 
 extension MapViewController: GMSMapViewDelegate {
     
@@ -123,6 +121,10 @@ extension MapViewController: GMSMapViewDelegate {
             marker.icon = UIImage(named: "rabbit")
         }
     }
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        reverseGeocodeCoordinate(coordinate: position.target)
+    }
+    
 }
 
 //extension MapViewController {
@@ -138,15 +140,31 @@ extension MapViewController: GMSMapViewDelegate {
 //    }
 //}
 
+//MARK: - CLLocationManagerDelegate
+
 extension MapViewController: CLLocationManagerDelegate {
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
-    }
     func locationManager(_ manager: CLLocationManager, didFailWithError error:
-    Error) {
-    print(error)
-        
+                         Error) {
     }
     
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        
+        if status == .authorizedWhenInUse {
+            locationManager?.startUpdatingLocation()
+            mapView.isMyLocationEnabled = true
+            mapView.settings.myLocationButton = true
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            locationManager?.stopUpdatingLocation()
+        }
+    }
 }
+
+
+    
+
